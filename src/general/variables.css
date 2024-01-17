@@ -1,0 +1,16 @@
+:root {
+    /* typeface */
+    --main-font: "Helvetica Neue", sans-serif;
+
+    /* colors */
+    --black: #000000;
+    --background-color: #141414;
+    --white: #ffffff;
+    --white-default: #e5e5e5;
+    --white-focus: #b3b3b3;
+
+    /* font size */
+    --size-s: 14px;
+    --size-m: 16px;
+    --size-l: 18px;
+}
