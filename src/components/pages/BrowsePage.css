@@ -1,0 +1,71 @@
+.row-margin {
+    margin: 3vw 0;
+}
+
+.billboard-container {
+    position: relative;
+    height: 650px;
+}
+
+.billboard-video {
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+}
+
+.scroll-container {
+    position: relative;
+}
+
+.movies-container {
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: wrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    font-family: var(--main-font);
+    text-shadow: 2px 0px 5px black;
+    font-weight: bold;
+    scroll-behavior: smooth;
+}
+
+.category-container {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    background-image: var(--background-color-gradient);
+}
+
+.scroll-arrow {
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.scroll-arrow.hovered {
+    opacity: 1;
+}
+
+.scroll-button-left,
+.scroll-button-right {
+    position: absolute;
+    top: 60px;
+    z-index: 10;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.scroll-button-left {
+    left: 10px;
+}
+
+.scroll-button-right {
+    right: 10px;
+    rotate: 180deg;
+}

@@ -2,9 +2,8 @@ import { Dispatch, SetStateAction } from "react";
 
 export type SetState<T> = Dispatch<SetStateAction<T>>;
 
-export interface ProductType {
+export interface VideoType {
     id: string;
     name: string;
-    price: number;
-    user_id: string;
+    category: string;
 }
