@@ -11,7 +11,7 @@ function BrowsePage() {
     const [hoveredScroll, sethoveredScroll] = useState(false);
 
     const handleScroll = (direction: "left" | "right") => {
-        const step = 500; // Adjust the step size as needed
+        const step = 500;
         const container = containerRef.current!;
         const maxScroll = container.scrollWidth - container.clientWidth;
 
@@ -36,7 +36,7 @@ function BrowsePage() {
     return (
         <>
             <div className="billboard-container">
-                <video className="billboard-video" autoPlay>
+                <video className="billboard-video" autoPlay loop>
                     <source src={SampleVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
@@ -61,9 +61,11 @@ function BrowsePage() {
                 <div className="movies-container row-margin" ref={containerRef}>
                     <div className="category-container">
                         {movies.map((movie) => (
-                            <MovieCard key={movie.imdbID} movie={movie} />
+                            <div className="movie-card-holder">
+                                <MovieCard key={movie.imdbID} movie={movie} />
+                            </div>
                         ))}
-                        {/* Duplicate the movies for infinite scrolling */}
+
                         {movies.map((movie) => (
                             <MovieCard
                                 key={movie.imdbID + "_duplicate"}

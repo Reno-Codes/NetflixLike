@@ -7,3 +7,12 @@ export interface VideoType {
     name: string;
     category: string;
 }
+
+export interface Movie {
+    Title: string;
+    Images: string[];
+    Year?: string;
+    Runtime?: string;
+    Genre?: string;
+    Poster?: string | undefined;
+}
