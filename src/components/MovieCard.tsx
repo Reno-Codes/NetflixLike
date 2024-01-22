@@ -13,15 +13,7 @@ function MovieCard({ movie }: MovieCardProps) {
     return (
         <>
             {hovered ? (
-                <div
-                    className="video-container"
-                    style={{
-                        position: "relative",
-                        width: "600px" /* 16:9 Aspect Ratio */,
-                        height: "100%",
-                        transition: "all 0.4s ease",
-                    }}
-                >
+                <div className="video-container">
                     <iframe
                         className="trailer-video"
                         onMouseLeave={() => setHovered(false)}

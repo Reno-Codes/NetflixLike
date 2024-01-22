@@ -4,34 +4,12 @@ import SampleVideo from "../../assets/video.mp4";
 import movies from "../../data/movies.json";
 import MovieCard from "../MovieCard";
 import ArrowLeft from "../../assets/arrow-left.svg";
+import { handleScroll } from "../../utils/MovieContainerUtils";
 
 function BrowsePage() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [scrollPosition, setScrollPosition] = useState(0);
     const [hoveredScroll, sethoveredScroll] = useState(false);
-
-    const handleScroll = (direction: "left" | "right") => {
-        const step = 500;
-        const container = containerRef.current!;
-        const maxScroll = container.scrollWidth - container.clientWidth;
-
-        let newScrollLeft;
-
-        if (direction === "left") {
-            newScrollLeft = scrollPosition - step;
-            if (newScrollLeft < 0) {
-                newScrollLeft = maxScroll;
-            }
-        } else {
-            newScrollLeft = scrollPosition + step;
-            if (newScrollLeft > maxScroll) {
-                newScrollLeft = 0;
-            }
-        }
-
-        container.scrollLeft = newScrollLeft;
-        setScrollPosition(newScrollLeft);
-    };
 
     return (
         <>
@@ -49,7 +27,14 @@ function BrowsePage() {
             >
                 <button
                     className="scroll-button-left"
-                    onClick={() => handleScroll("left")}
+                    onClick={() =>
+                        handleScroll(
+                            containerRef,
+                            scrollPosition,
+                            setScrollPosition,
+                            "left"
+                        )
+                    }
                 >
                     <img
                         className={`scroll-arrow ${hoveredScroll && "hovered"}`}
@@ -61,8 +46,11 @@ function BrowsePage() {
                 <div className="movies-container row-margin" ref={containerRef}>
                     <div className="category-container">
                         {movies.map((movie) => (
-                            <div className="movie-card-holder">
-                                <MovieCard key={movie.imdbID} movie={movie} />
+                            <div
+                                className="movie-card-holder"
+                                key={movie.imdbID}
+                            >
+                                <MovieCard movie={movie} />
                             </div>
                         ))}
 
@@ -77,7 +65,14 @@ function BrowsePage() {
 
                 <button
                     className="scroll-button-right"
-                    onClick={() => handleScroll("right")}
+                    onClick={() =>
+                        handleScroll(
+                            containerRef,
+                            scrollPosition,
+                            setScrollPosition,
+                            "right"
+                        )
+                    }
                 >
                     <img
                         className={`scroll-arrow ${hoveredScroll && "hovered"}`}
